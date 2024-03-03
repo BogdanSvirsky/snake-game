@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project source="2.7.1" version="1.0">
+This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
+<lib desc="#Wiring" name="0">
+    <tool name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="fanout" val="1"/>
+      <a name="incoming" val="4"/>
+      <a name="appear" val="center"/>
+      <a name="bit0" val="none"/>
+      <a name="bit1" val="none"/>
+      <a name="bit2" val="0"/>
+      <a name="bit3" val="none"/>
+    </tool>
+    <tool name="Pin">
+      <a name="facing" val="west"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="bus 0"/>
+    </tool>
+    <tool name="Probe">
+      <a name="facing" val="south"/>
+      <a name="radix" val="16"/>
+    </tool>
+    <tool name="Tunnel">
+      <a name="width" val="8"/>
+      <a name="label" val="vec-adr"/>
+      <a name="labelfont" val="SansSerif plain 9"/>
+    </tool>
+    <tool name="Pull Resistor">
+      <a name="facing" val="north"/>
+    </tool>
+    <tool name="Clock">
+      <a name="facing" val="north"/>
+    </tool>
+    <tool name="Constant">
+      <a name="width" val="8"/>
+      <a name="value" val="0x80"/>
+    </tool>
+  </lib>
+  <lib desc="#Gates" name="1">
+    <tool name="NOT Gate">
+      <a name="facing" val="west"/>
+    </tool>
+    <tool name="AND Gate">
+      <a name="facing" val="north"/>
+    </tool>
+    <tool name="NOR Gate">
+      <a name="facing" val="north"/>
+    </tool>
+    <tool name="XOR Gate">
+      <a name="facing" val="west"/>
+    </tool>
+  </lib>
+  <lib desc="#Plexers" name="2"/>
+  <lib desc="#Arithmetic" name="3"/>
+  <lib desc="#Memory" name="4">
+    <tool name="ROM">
+      <a name="contents">addr/data: 8 8
+0
+</a>
+    </tool>
+  </lib>
+  <lib desc="#I/O" name="5">
+    <tool name="Button">
+      <a name="facing" val="north"/>
+    </tool>
+  </lib>
+  <lib desc="#Base" name="6">
+    <tool name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+  </lib>
+  <lib desc="file#../cdm16.circ" name="7">
+    <tool name="sp_register">
+      <a name="facing" val="north"/>
+    </tool>
+    <tool name="pc_register">
+      <a name="facing" val="north"/>
+    </tool>
+    <tool name="ps_register">
+      <a name="facing" val="north"/>
+    </tool>
+    <tool name="bus_control">
+      <a name="facing" val="north"/>
+    </tool>
+    <tool name="barrel_shifter">
+      <a name="facing" val="north"/>
+    </tool>
+    <tool name="adder16">
+      <a name="facing" val="north"/>
+    </tool>
+    <tool name="branch_logic">
+      <a name="facing" val="north"/>
+    </tool>
+  </lib>
+  <lib desc="jar#I:\NSU\Virtual platforms\1sem\project\jar\logisim-banked-memory-0.2.0.jar#org.cdm.logisim.memory.Components" name="8">
+    <tool name="ROM">
+      <a name="contents">addr/data: 8 8
+0
+</a>
+    </tool>
+  </lib>
+  <main name="main"/>
+  <options>
+    <a name="gateUndefined" val="ignore"/>
+    <a name="simlimit" val="1000"/>
+    <a name="simrand" val="0"/>
+  </options>
+  <mappings>
+    <tool lib="6" map="Button2" name="Menu Tool"/>
+    <tool lib="6" map="Button3" name="Menu Tool"/>
+    <tool lib="6" map="Ctrl Button1" name="Menu Tool"/>
+  </mappings>
+  <toolbar>
+    <tool lib="6" name="Poke Tool"/>
+    <tool lib="6" name="Edit Tool"/>
+    <tool lib="6" name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+    <sep/>
+    <tool lib="0" name="Pin">
+      <a name="tristate" val="false"/>
+    </tool>
+    <tool lib="0" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </tool>
+    <tool lib="1" name="NOT Gate"/>
+    <tool lib="1" name="AND Gate"/>
+    <tool lib="1" name="OR Gate"/>
+  </toolbar>
+  <circuit name="main">
+    <a name="circuit" val="main"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+    <wire from="(300,290)" to="(550,290)"/>
+    <wire from="(470,590)" to="(470,600)"/>
+    <wire from="(270,270)" to="(270,280)"/>
+    <wire from="(130,60)" to="(130,140)"/>
+    <wire from="(550,200)" to="(550,290)"/>
+    <wire from="(150,570)" to="(390,570)"/>
+    <wire from="(90,360)" to="(90,570)"/>
+    <wire from="(80,390)" to="(80,600)"/>
+    <wire from="(350,180)" to="(350,260)"/>
+    <wire from="(140,120)" to="(140,140)"/>
+    <wire from="(330,250)" to="(430,250)"/>
+    <wire from="(150,110)" to="(150,140)"/>
+    <wire from="(230,250)" to="(260,250)"/>
+    <wire from="(230,220)" to="(390,220)"/>
+    <wire from="(270,280)" to="(290,280)"/>
+    <wire from="(280,290)" to="(300,290)"/>
+    <wire from="(90,120)" to="(90,360)"/>
+    <wire from="(400,500)" to="(400,550)"/>
+    <wire from="(420,500)" to="(420,550)"/>
+    <wire from="(440,500)" to="(440,550)"/>
+    <wire from="(460,500)" to="(460,550)"/>
+    <wire from="(480,500)" to="(480,550)"/>
+    <wire from="(500,500)" to="(500,550)"/>
+    <wire from="(300,240)" to="(300,290)"/>
+    <wire from="(520,500)" to="(520,550)"/>
+    <wire from="(540,500)" to="(540,550)"/>
+    <wire from="(80,110)" to="(150,110)"/>
+    <wire from="(80,600)" to="(470,600)"/>
+    <wire from="(90,360)" to="(160,360)"/>
+    <wire from="(540,200)" to="(550,200)"/>
+    <wire from="(230,190)" to="(290,190)"/>
+    <wire from="(230,180)" to="(350,180)"/>
+    <wire from="(430,240)" to="(430,250)"/>
+    <wire from="(470,240)" to="(470,250)"/>
+    <wire from="(90,120)" to="(140,120)"/>
+    <wire from="(450,240)" to="(450,260)"/>
+    <wire from="(390,200)" to="(390,220)"/>
+    <wire from="(130,260)" to="(130,280)"/>
+    <wire from="(350,260)" to="(450,260)"/>
+    <wire from="(80,110)" to="(80,390)"/>
+    <wire from="(290,190)" to="(290,280)"/>
+    <wire from="(230,200)" to="(330,200)"/>
+    <wire from="(230,240)" to="(260,240)"/>
+    <wire from="(280,240)" to="(300,240)"/>
+    <wire from="(260,250)" to="(260,290)"/>
+    <wire from="(90,570)" to="(110,570)"/>
+    <wire from="(490,240)" to="(490,280)"/>
+    <wire from="(390,200)" to="(400,200)"/>
+    <wire from="(80,390)" to="(160,390)"/>
+    <wire from="(120,90)" to="(120,140)"/>
+    <wire from="(390,500)" to="(390,550)"/>
+    <wire from="(410,500)" to="(410,550)"/>
+    <wire from="(430,500)" to="(430,550)"/>
+    <wire from="(450,500)" to="(450,550)"/>
+    <wire from="(470,500)" to="(470,550)"/>
+    <wire from="(490,500)" to="(490,550)"/>
+    <wire from="(510,500)" to="(510,550)"/>
+    <wire from="(330,200)" to="(330,250)"/>
+    <wire from="(530,500)" to="(530,550)"/>
+    <wire from="(290,280)" to="(490,280)"/>
+    <comp lib="8" loc="(540,200)" name="RAM">
+      <a name="addrWidth" val="16"/>
+      <a name="Directory" val="I:\NSU\Virtual platforms\1sem\project\logisim\out.img"/>
+      <a name="LoadImageFromFile" val="load"/>
+    </comp>
+    <comp lib="1" loc="(280,240)" name="Controlled Buffer">
+      <a name="width" val="16"/>
+    </comp>
+    <comp lib="2" loc="(470,590)" name="Demultiplexer">
+      <a name="facing" val="north"/>
+      <a name="select" val="4"/>
+      <a name="width" val="16"/>
+    </comp>
+    <comp lib="0" loc="(500,550)" name="Pull Resistor"/>
+    <comp lib="5" loc="(260,420)" name="Button">
+      <a name="facing" val="south"/>
+      <a name="label" val="&gt;"/>
+    </comp>
+    <comp lib="0" loc="(460,550)" name="Pull Resistor"/>
+    <comp lib="0" loc="(390,550)" name="Pull Resistor"/>
+    <comp lib="0" loc="(420,550)" name="Pull Resistor"/>
+    <comp lib="0" loc="(160,390)" name="Probe">
+      <a name="facing" val="south"/>
+      <a name="radix" val="16"/>
+    </comp>
+    <comp lib="5" loc="(610,470)" name="DotMatrix">
+      <a name="matrixcols" val="16"/>
+      <a name="matrixrows" val="16"/>
+      <a name="color" val="#ffb187"/>
+      <a name="persist" val="1"/>
+      <a name="dotshape" val="circle"/>
+    </comp>
+    <comp lib="0" loc="(510,550)" name="Pull Resistor"/>
+    <comp lib="0" loc="(530,550)" name="Pull Resistor"/>
+    <comp lib="0" loc="(470,550)" name="Pull Resistor"/>
+    <comp lib="5" loc="(220,420)" name="Button">
+      <a name="facing" val="south"/>
+      <a name="label" val="&lt;"/>
+    </comp>
+    <comp lib="0" loc="(410,550)" name="Pull Resistor"/>
+    <comp lib="5" loc="(240,380)" name="Button">
+      <a name="facing" val="north"/>
+      <a name="label" val="^"/>
+    </comp>
+    <comp lib="0" loc="(440,550)" name="Pull Resistor"/>
+    <comp lib="0" loc="(130,280)" name="Clock">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp lib="0" loc="(480,550)" name="Pull Resistor"/>
+    <comp lib="5" loc="(390,500)" name="DotMatrix">
+      <a name="matrixcols" val="16"/>
+      <a name="matrixrows" val="16"/>
+    </comp>
+    <comp lib="5" loc="(240,420)" name="Button">
+      <a name="facing" val="south"/>
+      <a name="label" val="v"/>
+    </comp>
+    <comp lib="1" loc="(260,290)" name="Controlled Buffer">
+      <a name="facing" val="west"/>
+      <a name="width" val="16"/>
+    </comp>
+    <comp lib="0" loc="(490,550)" name="Pull Resistor"/>
+    <comp lib="0" loc="(450,550)" name="Pull Resistor"/>
+    <comp lib="0" loc="(150,570)" name="Bit Extender">
+      <a name="in_width" val="16"/>
+      <a name="out_width" val="4"/>
+    </comp>
+    <comp lib="0" loc="(470,250)" name="Clock">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp lib="0" loc="(400,550)" name="Pull Resistor"/>
+    <comp lib="7" loc="(170,210)" name="cdm16"/>
+    <comp lib="0" loc="(130,60)" name="Probe">
+      <a name="facing" val="south"/>
+      <a name="radix" val="16"/>
+    </comp>
+    <comp lib="0" loc="(160,360)" name="Probe">
+      <a name="facing" val="south"/>
+      <a name="radix" val="16"/>
+    </comp>
+    <comp lib="1" loc="(270,250)" name="NOT Gate">
+      <a name="facing" val="north"/>
+      <a name="size" val="20"/>
+    </comp>
+    <comp lib="0" loc="(540,550)" name="Pull Resistor"/>
+    <comp lib="0" loc="(520,550)" name="Pull Resistor"/>
+    <comp lib="0" loc="(120,90)" name="Probe">
+      <a name="facing" val="south"/>
+      <a name="radix" val="16"/>
+    </comp>
+    <comp lib="0" loc="(430,550)" name="Pull Resistor"/>
+  </circuit>
+  <circuit name="display_controller">
+    <a name="circuit" val="display_controller"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+    <comp lib="0" loc="(140,200)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="pixel state"/>
+    </comp>
+    <comp lib="2" loc="(330,250)" name="Multiplexer"/>
+    <comp lib="0" loc="(140,160)" name="Pin">
+      <a name="width" val="5"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="Y_coord"/>
+    </comp>
+    <comp lib="0" loc="(140,120)" name="Pin">
+      <a name="width" val="5"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="X_coord"/>
+    </comp>
+    <comp lib="4" loc="(550,100)" name="Register"/>
+    <comp lib="0" loc="(140,240)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="write"/>
+    </comp>
+  </circuit>
+</project>
