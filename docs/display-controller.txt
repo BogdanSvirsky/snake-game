@@ -1,0 +1,20 @@
+DESCRIPTION
+
+this circuit is used to control 16x16 display per pixel.
+It has it's own memory to store current state of display, every pixel.
+
+INPUTS
+
+o   X_coord - horisontal coordinate of pixel, number of column, 
+    4-bit value
+o   Y_coord - vertical coordinate of pixel, number of row, 
+    4-bit value
+o   pixel state - 1 bit value, describe how will change pixel, 
+    selected by X_coord and Y_coord.
+o   write - 1 bit, to store pixel state to selected pixel, need to 
+    be raised from 0 to 1 (recommend then drop from 1 to 0 immediately)
+
+OUTPUTS
+
+o   there are 16 16-bit outputs, display 16x16 can be easily placed
+    on top of display controller.

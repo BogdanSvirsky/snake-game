@@ -1,0 +1,21 @@
+DESCRIPTION
+
+can be used to simplify operations of display controller and
+provide them throw only one 16-bit register.
+decodes 16 bit value from register to four values, according to the
+inputs of display controller.
+
+INPUTS
+
+o   one 16-bit input, value from register. Bits 0-3 - X coordinate,
+    bits 4-7 - Y coordinate, bit 8 - pixel state, bit 9 - write.
+
+OUTPUTS
+
+all according to the inputs of display-controller
+o   X coord
+o   Y coord
+o   pixel state
+o   write
+Due to their locations on circuit, display decoder can be simply placed
+next to the display controller (on the left side of it).
