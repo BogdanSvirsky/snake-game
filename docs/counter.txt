@@ -1,0 +1,14 @@
+DESCRIPTION
+
+counter circuit used for counting score in game.
+recommend to connect 3 standart 7-segment displays on top.
+values can be from 0 to 999
+
+INPUTS
+
+o   increment - 1-bit input, when rising from 0 to 1, increments value
+o   zero - 1-bit input, when raised from 0 to 1, make value zero
+
+OUTPUTS
+
+o   three 4-bit outputs for connecting 7-segment displays
