@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project source="2.7.1" version="1.0">
-This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
-<lib desc="#Wiring" name="0">
+  This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
+
+  <lib desc="#Wiring" name="0">
     <tool name="Splitter">
       <a name="facing" val="north"/>
       <a name="fanout" val="1"/>
@@ -82,6 +83,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
   <lib desc="file#elements/display-controller.circ" name="10"/>
   <lib desc="file#elements/display-decoder.circ" name="11"/>
   <lib desc="file#elements/counter.circ" name="12"/>
+  <lib desc="file#/Users/kenig.nsk/Logisim/knopki.circ" name="13"/>
   <main name="main"/>
   <options>
     <a name="gateUndefined" val="ignore"/>
@@ -120,72 +122,110 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
+    <wire from="(220,640)" to="(270,640)"/>
     <wire from="(430,130)" to="(550,130)"/>
     <wire from="(320,80)" to="(320,90)"/>
+    <wire from="(290,590)" to="(290,600)"/>
+    <wire from="(400,620)" to="(400,640)"/>
     <wire from="(460,140)" to="(560,140)"/>
     <wire from="(800,150)" to="(800,230)"/>
+    <wire from="(260,610)" to="(300,610)"/>
     <wire from="(630,150)" to="(630,170)"/>
     <wire from="(520,230)" to="(800,230)"/>
     <wire from="(550,210)" to="(700,210)"/>
     <wire from="(440,240)" to="(470,240)"/>
     <wire from="(490,190)" to="(520,190)"/>
+    <wire from="(280,630)" to="(300,630)"/>
     <wire from="(460,230)" to="(480,230)"/>
     <wire from="(440,200)" to="(440,240)"/>
+    <wire from="(240,630)" to="(260,630)"/>
     <wire from="(300,460)" to="(310,460)"/>
+    <wire from="(220,590)" to="(290,590)"/>
     <wire from="(790,150)" to="(800,150)"/>
     <wire from="(430,170)" to="(630,170)"/>
     <wire from="(680,190)" to="(680,200)"/>
     <wire from="(560,220)" to="(740,220)"/>
+    <wire from="(220,630)" to="(220,640)"/>
+    <wire from="(360,610)" to="(410,610)"/>
+    <wire from="(420,630)" to="(420,640)"/>
     <wire from="(520,230)" to="(520,240)"/>
+    <wire from="(260,610)" to="(260,630)"/>
+    <wire from="(270,620)" to="(270,640)"/>
+    <wire from="(280,630)" to="(280,650)"/>
     <wire from="(430,150)" to="(540,150)"/>
     <wire from="(740,190)" to="(740,220)"/>
+    <wire from="(200,630)" to="(200,650)"/>
     <wire from="(550,130)" to="(550,210)"/>
     <wire from="(560,140)" to="(560,220)"/>
     <wire from="(460,140)" to="(460,230)"/>
+    <wire from="(360,620)" to="(400,620)"/>
     <wire from="(700,190)" to="(700,210)"/>
     <wire from="(430,190)" to="(470,190)"/>
     <wire from="(430,140)" to="(460,140)"/>
     <wire from="(490,240)" to="(520,240)"/>
     <wire from="(630,150)" to="(650,150)"/>
+    <wire from="(270,620)" to="(300,620)"/>
     <wire from="(300,80)" to="(320,80)"/>
+    <wire from="(400,640)" to="(420,640)"/>
     <wire from="(520,190)" to="(520,230)"/>
     <wire from="(430,200)" to="(440,200)"/>
+    <wire from="(290,600)" to="(300,600)"/>
+    <wire from="(200,650)" to="(280,650)"/>
     <wire from="(300,80)" to="(300,460)"/>
     <wire from="(540,150)" to="(540,200)"/>
     <wire from="(540,200)" to="(680,200)"/>
+    <comp lib="11" loc="(310,480)" name="decoder"/>
+    <comp lib="5" loc="(240,630)" name="Button">
+      <a name="facing" val="south"/>
+      <a name="label" val="&gt;"/>
+    </comp>
+    <comp lib="1" loc="(480,200)" name="NOT Gate">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp lib="0" loc="(330,210)" name="Clock">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp lib="8" loc="(310,90)" name="CdM-16"/>
+    <comp lib="5" loc="(220,630)" name="Button">
+      <a name="facing" val="south"/>
+    </comp>
+    <comp lib="9" loc="(40,560)" name="Debugger"/>
+    <comp lib="13" loc="(330,580)" name="knopochki"/>
+    <comp lib="4" loc="(440,610)" name="Register">
+      <a name="width" val="4"/>
+    </comp>
     <comp lib="5" loc="(380,440)" name="DotMatrix">
       <a name="matrixcols" val="16"/>
       <a name="matrixrows" val="16"/>
     </comp>
+    <comp lib="10" loc="(380,440)" name="display_controller"/>
+    <comp lib="1" loc="(470,240)" name="Controlled Buffer">
+      <a name="facing" val="west"/>
+      <a name="width" val="16"/>
+    </comp>
+    <comp lib="5" loc="(220,590)" name="Button">
+      <a name="facing" val="north"/>
+      <a name="label" val="^"/>
+    </comp>
+    <comp lib="5" loc="(200,630)" name="Button">
+      <a name="facing" val="south"/>
+      <a name="label" val="&lt;"/>
+    </comp>
     <comp lib="0" loc="(720,190)" name="Clock">
       <a name="facing" val="north"/>
-    </comp>
-    <comp lib="1" loc="(490,190)" name="Controlled Buffer">
-      <a name="width" val="16"/>
     </comp>
     <comp lib="7" loc="(790,150)" name="RAM">
       <a name="addrWidth" val="16"/>
       <a name="Directory" val="C:\programming_data\projects\snake-game\out.img"/>
     </comp>
-    <comp lib="9" loc="(40,560)" name="Debugger"/>
-    <comp lib="10" loc="(380,440)" name="display_controller"/>
-    <comp lib="11" loc="(310,480)" name="decoder"/>
-    <comp lib="8" loc="(310,90)" name="CdM-16"/>
-    <comp lib="1" loc="(480,200)" name="NOT Gate">
-      <a name="facing" val="north"/>
+    <comp lib="1" loc="(490,190)" name="Controlled Buffer">
+      <a name="width" val="16"/>
     </comp>
     <comp lib="6" loc="(1007,261)" name="Text">
       <a name="text" val="Тут мы ставим счётчик"/>
     </comp>
     <comp lib="6" loc="(293,707)" name="Text">
       <a name="text" val="Тут мы ставим кнопки для управления змеёй"/>
-    </comp>
-    <comp lib="1" loc="(470,240)" name="Controlled Buffer">
-      <a name="facing" val="west"/>
-      <a name="width" val="16"/>
-    </comp>
-    <comp lib="0" loc="(330,210)" name="Clock">
-      <a name="facing" val="north"/>
     </comp>
   </circuit>
 </project>
