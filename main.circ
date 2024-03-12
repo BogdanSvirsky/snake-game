@@ -80,6 +80,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
   <lib desc="jar#elements/logisim-cdm-emulator-0.2.0.jar#org.cdm.logisim.emulator.Components" name="8"/>
   <lib desc="jar#elements/logisim-debugger-0.2.0.jar#org.cdm.logisim.debugger.Components" name="9"/>
   <lib desc="file#elements/display-controller.circ" name="10"/>
+  <lib desc="file#elements/display-decoder.circ" name="11"/>
+  <lib desc="file#elements/counter.circ" name="12"/>
   <main name="main"/>
   <options>
     <a name="gateUndefined" val="ignore"/>
@@ -118,97 +120,58 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
-    <wire from="(180,30)" to="(180,480)"/>
-    <wire from="(250,470)" to="(370,470)"/>
-    <wire from="(320,80)" to="(320,90)"/>
-    <wire from="(250,450)" to="(250,460)"/>
     <wire from="(430,130)" to="(550,130)"/>
-    <wire from="(250,470)" to="(250,480)"/>
-    <wire from="(260,480)" to="(260,490)"/>
-    <wire from="(310,430)" to="(310,450)"/>
-    <wire from="(330,70)" to="(330,90)"/>
-    <wire from="(170,20)" to="(170,490)"/>
+    <wire from="(320,80)" to="(320,90)"/>
     <wire from="(460,140)" to="(560,140)"/>
-    <wire from="(380,60)" to="(380,90)"/>
     <wire from="(800,150)" to="(800,230)"/>
     <wire from="(630,150)" to="(630,170)"/>
-    <wire from="(250,80)" to="(250,430)"/>
     <wire from="(520,230)" to="(800,230)"/>
     <wire from="(550,210)" to="(700,210)"/>
     <wire from="(440,240)" to="(470,240)"/>
     <wire from="(490,190)" to="(520,190)"/>
-    <wire from="(170,20)" to="(450,20)"/>
     <wire from="(460,230)" to="(480,230)"/>
     <wire from="(440,200)" to="(440,240)"/>
-    <wire from="(190,450)" to="(200,450)"/>
-    <wire from="(250,430)" to="(260,430)"/>
-    <wire from="(250,80)" to="(320,80)"/>
+    <wire from="(300,460)" to="(310,460)"/>
     <wire from="(790,150)" to="(800,150)"/>
     <wire from="(430,170)" to="(630,170)"/>
-    <wire from="(180,30)" to="(440,30)"/>
-    <wire from="(310,450)" to="(370,450)"/>
     <wire from="(680,190)" to="(680,200)"/>
     <wire from="(560,220)" to="(740,220)"/>
-    <wire from="(250,460)" to="(370,460)"/>
-    <wire from="(440,30)" to="(440,40)"/>
     <wire from="(520,230)" to="(520,240)"/>
-    <wire from="(450,20)" to="(450,40)"/>
     <wire from="(430,150)" to="(540,150)"/>
     <wire from="(740,190)" to="(740,220)"/>
-    <wire from="(260,480)" to="(370,480)"/>
     <wire from="(550,130)" to="(550,210)"/>
     <wire from="(560,140)" to="(560,220)"/>
     <wire from="(460,140)" to="(460,230)"/>
     <wire from="(700,190)" to="(700,210)"/>
     <wire from="(430,190)" to="(470,190)"/>
     <wire from="(430,140)" to="(460,140)"/>
-    <wire from="(170,490)" to="(260,490)"/>
     <wire from="(490,240)" to="(520,240)"/>
     <wire from="(630,150)" to="(650,150)"/>
+    <wire from="(300,80)" to="(320,80)"/>
     <wire from="(520,190)" to="(520,230)"/>
     <wire from="(430,200)" to="(440,200)"/>
-    <wire from="(300,430)" to="(310,430)"/>
-    <wire from="(240,450)" to="(250,450)"/>
-    <wire from="(190,70)" to="(330,70)"/>
-    <wire from="(180,480)" to="(250,480)"/>
+    <wire from="(300,80)" to="(300,460)"/>
     <wire from="(540,150)" to="(540,200)"/>
     <wire from="(540,200)" to="(680,200)"/>
-    <wire from="(190,70)" to="(190,450)"/>
-    <comp lib="0" loc="(240,450)" name="Bit Extender">
-      <a name="in_width" val="16"/>
-      <a name="out_width" val="4"/>
-    </comp>
     <comp lib="5" loc="(380,440)" name="DotMatrix">
       <a name="matrixcols" val="16"/>
       <a name="matrixrows" val="16"/>
     </comp>
+    <comp lib="0" loc="(720,190)" name="Clock">
+      <a name="facing" val="north"/>
+    </comp>
     <comp lib="1" loc="(490,190)" name="Controlled Buffer">
       <a name="width" val="16"/>
-    </comp>
-    <comp lib="8" loc="(310,90)" name="CdM-16"/>
-    <comp lib="1" loc="(470,240)" name="Controlled Buffer">
-      <a name="facing" val="west"/>
-      <a name="width" val="16"/>
-    </comp>
-    <comp lib="0" loc="(300,430)" name="Bit Extender">
-      <a name="in_width" val="16"/>
-      <a name="out_width" val="4"/>
     </comp>
     <comp lib="7" loc="(790,150)" name="RAM">
       <a name="addrWidth" val="16"/>
       <a name="Directory" val="C:\programming_data\projects\snake-game\out.img"/>
     </comp>
-    <comp lib="0" loc="(380,60)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="fanout" val="16"/>
-      <a name="incoming" val="16"/>
-      <a name="appear" val="center"/>
-    </comp>
+    <comp lib="9" loc="(40,560)" name="Debugger"/>
     <comp lib="10" loc="(380,440)" name="display_controller"/>
-    <comp lib="0" loc="(330,210)" name="Clock">
-      <a name="facing" val="north"/>
-    </comp>
-    <comp lib="0" loc="(720,190)" name="Clock">
+    <comp lib="11" loc="(310,480)" name="decoder"/>
+    <comp lib="8" loc="(310,90)" name="CdM-16"/>
+    <comp lib="1" loc="(480,200)" name="NOT Gate">
       <a name="facing" val="north"/>
     </comp>
     <comp lib="6" loc="(1007,261)" name="Text">
@@ -217,7 +180,11 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="6" loc="(293,707)" name="Text">
       <a name="text" val="Тут мы ставим кнопки для управления змеёй"/>
     </comp>
-    <comp lib="1" loc="(480,200)" name="NOT Gate">
+    <comp lib="1" loc="(470,240)" name="Controlled Buffer">
+      <a name="facing" val="west"/>
+      <a name="width" val="16"/>
+    </comp>
+    <comp lib="0" loc="(330,210)" name="Clock">
       <a name="facing" val="north"/>
     </comp>
   </circuit>
