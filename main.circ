@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project source="2.7.1" version="1.0">
-  This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
-
-  <lib desc="#Wiring" name="0">
+This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
+<lib desc="#Wiring" name="0">
     <tool name="Splitter">
       <a name="facing" val="north"/>
       <a name="fanout" val="1"/>
@@ -28,7 +27,7 @@
       <a name="labelfont" val="SansSerif plain 9"/>
     </tool>
     <tool name="Pull Resistor">
-      <a name="facing" val="north"/>
+      <a name="facing" val="west"/>
     </tool>
     <tool name="Clock">
       <a name="facing" val="north"/>
@@ -183,69 +182,69 @@
     <wire from="(540,150)" to="(540,200)"/>
     <wire from="(460,550)" to="(460,610)"/>
     <wire from="(540,200)" to="(680,200)"/>
-    <comp lib="13" loc="(300,590)" name="Buttons"/>
-    <comp lib="1" loc="(470,240)" name="Controlled Buffer">
-      <a name="facing" val="west"/>
+    <comp lib="1" loc="(490,190)" name="Controlled Buffer">
       <a name="width" val="16"/>
-    </comp>
-    <comp lib="7" loc="(790,150)" name="RAM">
-      <a name="addrWidth" val="16"/>
-      <a name="Directory" val="C:\programming_data\projects\snake-game\out.img"/>
     </comp>
     <comp lib="5" loc="(220,630)" name="Button">
       <a name="facing" val="south"/>
     </comp>
-    <comp lib="9" loc="(40,560)" name="Debugger"/>
+    <comp lib="1" loc="(470,240)" name="Controlled Buffer">
+      <a name="facing" val="west"/>
+      <a name="width" val="16"/>
+    </comp>
     <comp lib="4" loc="(440,610)" name="Register">
       <a name="width" val="4"/>
     </comp>
-    <comp lib="6" loc="(293,707)" name="Text">
-      <a name="text" val="Тут мы ставим кнопки для управления змеёй"/>
+    <comp lib="5" loc="(240,630)" name="Button">
+      <a name="facing" val="south"/>
+      <a name="label" val="&gt;"/>
     </comp>
     <comp lib="8" loc="(310,90)" name="CdM-16"/>
     <comp lib="5" loc="(220,590)" name="Button">
       <a name="facing" val="north"/>
       <a name="label" val="^"/>
     </comp>
-    <comp lib="10" loc="(380,440)" name="display_controller"/>
-    <comp lib="6" loc="(1007,261)" name="Text">
-      <a name="text" val="Тут мы ставим счётчик"/>
-    </comp>
-    <comp lib="1" loc="(480,200)" name="NOT Gate">
-      <a name="facing" val="north"/>
-    </comp>
-    <comp lib="11" loc="(310,480)" name="decoder"/>
-    <comp lib="5" loc="(200,630)" name="Button">
-      <a name="facing" val="south"/>
-      <a name="label" val="&lt;"/>
-    </comp>
-    <comp lib="0" loc="(330,210)" name="Clock">
-      <a name="facing" val="north"/>
-    </comp>
-    <comp lib="5" loc="(380,440)" name="DotMatrix">
-      <a name="matrixcols" val="16"/>
-      <a name="matrixrows" val="16"/>
-    </comp>
-    <comp lib="1" loc="(490,190)" name="Controlled Buffer">
-      <a name="width" val="16"/>
-    </comp>
+    <comp lib="10" loc="(380,490)" name="display_controller"/>
     <comp lib="0" loc="(250,90)" name="Splitter">
       <a name="facing" val="west"/>
       <a name="fanout" val="16"/>
       <a name="incoming" val="16"/>
       <a name="appear" val="center"/>
     </comp>
-    <comp lib="5" loc="(240,630)" name="Button">
+    <comp lib="7" loc="(790,150)" name="RAM">
+      <a name="addrWidth" val="16"/>
+      <a name="Directory" val="C:\programming_data\projects\snake-game\out.img"/>
+    </comp>
+    <comp lib="6" loc="(1007,261)" name="Text">
+      <a name="text" val="Тут мы ставим счётчик"/>
+    </comp>
+    <comp lib="13" loc="(300,590)" name="Buttons"/>
+    <comp lib="1" loc="(480,200)" name="NOT Gate">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp lib="9" loc="(40,560)" name="Debugger"/>
+    <comp lib="0" loc="(720,190)" name="Clock">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp lib="0" loc="(330,210)" name="Clock">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp lib="5" loc="(200,630)" name="Button">
       <a name="facing" val="south"/>
-      <a name="label" val="&gt;"/>
+      <a name="label" val="&lt;"/>
     </comp>
     <comp lib="0" loc="(210,90)" name="Splitter">
       <a name="fanout" val="16"/>
       <a name="incoming" val="4"/>
       <a name="appear" val="center"/>
     </comp>
-    <comp lib="0" loc="(720,190)" name="Clock">
-      <a name="facing" val="north"/>
+    <comp lib="11" loc="(310,480)" name="decoder"/>
+    <comp lib="5" loc="(380,440)" name="DotMatrix">
+      <a name="matrixcols" val="16"/>
+      <a name="matrixrows" val="16"/>
+    </comp>
+    <comp lib="6" loc="(293,707)" name="Text">
+      <a name="text" val="Тут мы ставим кнопки для управления змеёй"/>
     </comp>
   </circuit>
 </project>

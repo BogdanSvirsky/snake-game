@@ -13,8 +13,12 @@ o   pixel state - 1 bit value, describe how will change pixel,
     selected by X_coord and Y_coord.
 o   write - 1 bit, to store pixel state to selected pixel, need to 
     be raised from 0 to 1 (recommend then drop from 1 to 0 immediately)
+o   pixel check - 1 bit, use to get information about this pixel 
+    (with X Y coords), is it enabled or disabled.  
 
 OUTPUTS
 
 o   there are 16 16-bit outputs, display 16x16 can be easily placed
     on top of display controller.
+o   checked - if pixel check enabled, gives info about pixel with 
+    X Y coords, is it enabled or disabled.
