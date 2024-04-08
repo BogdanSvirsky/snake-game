@@ -31,6 +31,8 @@ start_snake_coords: # pointer to first coords
     dc snake_coords
 end_snake_coords: # place for new coords
     dc snake_coords
+snake_length:
+    dc 1
 
 check_coords_pointers> # store pointer in r2
     ldi r3, snake_coords
@@ -92,32 +94,113 @@ pop_coords>
     pop r0
     rts
 
-main>
-    ldi r0, 0x00
-    jsr push_coords
-    inc r0
-    jsr push_coords
-    inc r0
-    jsr push_coords
-    inc r0
-    jsr push_coords
-    inc r0
-    jsr push_coords
-    move_x:
-        inc r0
-        ldi r1, 0xff
-        and r1, r0
-        jsr push_coords
-        jsr pop_coords
-    move_y:
+move_up>
+    ldi r1, 0b11110000
+    and r0, r1
+    ldi r2, 0b11110000
+    if
+        cmp r2, r1
+    is eq
+        halt
+    else
         ldi r1, 0x10
         add r1, r0
-        ldi r1, 0xff
-        and r1, r0
         jsr push_coords
-        jsr pop_coords
-        ldi r1, 0xf0
-        and r0, r1
+    fi
+    rts
+
+move_bottom>
+    ldi r1, 0b11110000
+    and r0, r1
+    if
         tst r1
-        bne move_x
+    is eq
+        halt
+    else
+        ldi r1, 0x10
+        sub r0, r1
+        move r1, r0
+        jsr push_coords
+    fi
+    rts
+
+move_left>
+    ldi r1, 0b1111
+    and r0, r1
+    if
+        tst r1
+    is eq
+        halt
+    else
+        ldi r1, 0b1
+        sub r0, r1
+        move r1, r0
+        jsr push_coords
+    fi
+    rts
+
+move_right>
+    ldi r1, 0b1111
+    and r0, r1
+    ldi r2, 0b1111
+    if
+        cmp r2, r1
+    is eq
+        halt
+    else
+        ldi r1, 1
+        add r1, r0
+        jsr push_coords
+    fi
+    rts
+
+move_snake>
+    ldi r1, 0x8800 # addres of keyboard input in memory
+    ld r1, r1
+    if
+        tst r1
+    is z
+        rts
+    fi
+    ldi r2, 0b1
+    if
+        cmp r1, r2
+    is eq
+        jsr move_up
+    else
+        ldi r2, 0b10
+        if
+            cmp r1, r2
+        is eq
+            jsr move_right
+        else
+            ldi r2, 0b100
+            if
+                cmp r1, r2
+            is eq
+                jsr move_bottom
+            else
+                jsr move_left
+            fi
+        fi
+    fi
+    jsr pop_coords
+    rts
+
+main>
+    ldi r0, 0 # init start coords
+    jsr push_coords
+    ldi r1, snake_length
+    ld r1, r1
+    ldi r2, 256
+    while
+        cmp r2, r1
+    stays gt
+        jsr move_snake
+        ldi r1, snake_length
+        ld r1, r1
+        ldi r2, 256
+    wend
+        
+
 end.
