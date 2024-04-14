@@ -32,7 +32,7 @@ start_snake_coords: # pointer to first coords
 end_snake_coords: # place for new coords
     dc snake_coords
 snake_length:
-    dc 1
+    dc 0
 
 check_coords_pointers> # store pointer in r2
     ldi r3, snake_coords
@@ -187,11 +187,18 @@ move_snake>
     jsr pop_coords
     rts
 
-main>
+init_snake>
     ldi r0, 0 # init start coords
     jsr push_coords
     ldi r1, snake_length
     ld r1, r1
+    inc r1 # init snake length 1
+    ldi r2, snake_length
+    st r2, r1
+    rts
+
+main>
+    jsr init_snake
     ldi r2, 256
     while
         cmp r2, r1
@@ -201,6 +208,4 @@ main>
         ld r1, r1
         ldi r2, 256
     wend
-        
-
 end.
