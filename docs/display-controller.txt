@@ -14,7 +14,9 @@ o   pixel state - 1 bit value, describe how will change pixel,
 o   write - 1 bit, to store pixel state to selected pixel, need to 
     be raised from 0 to 1 (recommend then drop from 1 to 0 immediately)
 o   pixel check - 1 bit, use to get information about this pixel 
-    (with X Y coords), is it enabled or disabled.  
+    (with X Y coords), is it enabled or disabled.
+o   game over - 1 bit, use to end the game and switch display to
+    game over screen  
 
 OUTPUTS
 

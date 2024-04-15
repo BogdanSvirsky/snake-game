@@ -1,0 +1,9 @@
+Consider A as the beginning of memory mapped address space. 
+By now A = 0x8800
+register r6 is used as output to control 0 parts of circuit
+o   bit 0 - when switch from 1 to 0, new 16-bit random value is 
+    generated on memory mapped input to A + 1. Random value is 8-bit length and
+    can be used for random coordinates.
+o   bit 1 - check collision is used to check is pixel with current
+    coordinates on or not. Output goes to the A + 2 as 1 or 0.
+o   bit 2 - game over, when 1, display switches to the 'game over' screen.
