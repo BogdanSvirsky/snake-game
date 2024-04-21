@@ -23,10 +23,10 @@ default_handler>
 # Main program section
 rsect main
 # r0 - display managment (by decoder)
-
+# r6 - external devices managment
 # snake's coordinates - 0x00YX
 snake_coords:
-    ds 512
+    ds 256
 start_snake_coords: # pointer to first coords
     dc snake_coords
 end_snake_coords: # place for new coords
@@ -37,7 +37,7 @@ snake_length:
 check_coords_pointers> # store pointer in r2
     ldi r3, snake_coords
     sub r2, r3
-    ldi r4, 510
+    ldi r4, 255
     if
         cmp r3, r4
     is eq
@@ -70,7 +70,7 @@ push_coords_to_display> # r0 - 0bMYYYYXXXX (M - mode)
 push_coords>
     ldi r2, end_snake_coords
     ld r2, r2
-    st r2, r0
+    stb r2, r0
     jsr check_coords_pointers
     ldi r3, end_snake_coords
     st r3, r2
@@ -82,7 +82,7 @@ pop_coords>
     push r0
     ldi r2, start_snake_coords
     ld r2, r2
-    ld r2, r0
+    ldb r2, r0
     jsr turn_off_pixel
     jsr push_coords_to_display
 
@@ -101,7 +101,7 @@ move_up>
     if
         cmp r2, r1
     is eq
-        halt
+        jsr game_over
     else
         ldi r1, 0x10
         add r1, r0
@@ -115,7 +115,7 @@ move_bottom>
     if
         tst r1
     is eq
-        halt
+        jsr game_over
     else
         ldi r1, 0x10
         sub r0, r1
@@ -130,7 +130,7 @@ move_left>
     if
         tst r1
     is eq
-        halt
+        jsr game_over
     else
         ldi r1, 0b1
         sub r0, r1
@@ -146,7 +146,7 @@ move_right>
     if
         cmp r2, r1
     is eq
-        halt
+        jsr game_over
     else
         ldi r1, 1
         add r1, r0
@@ -156,6 +156,7 @@ move_right>
 
 move_snake>
     ldi r1, 0x8800 # addres of keyboard input in memory
+    # TODO: add snake's size changed logic
     ld r1, r1
     if
         tst r1
@@ -197,8 +198,37 @@ init_snake>
     st r2, r1
     rts
 
+set_external_devices>
+    # TODO: set addresses for external devices
+    rts
+
+generate_food>
+    # we don't need to turn off the old pixel, because it is now part of the snake
+    push r0
+    do
+        ldi r6, 1
+        ldi r6, 0
+        ldi r1, 0x8801
+        ld r1, r0
+        ldi r6, 0b10
+        ldi r1, 0x8802
+        ld r1, r1
+        tst r1
+    until z
+    jsr turn_on_pixel
+    jsr push_coords_to_display
+    pop r0
+    rts
+
+game_over>
+    # TODO: add game over logic
+    halt
+    rts
+
 main>
+    jsr set_external_devices
     jsr init_snake
+    # jsr generate_food
     ldi r2, 256
     while
         cmp r2, r1
