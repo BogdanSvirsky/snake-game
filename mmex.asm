@@ -93,8 +93,6 @@ pop_coords>
     rts
 
 main>
-    ldi r0, 0x8800
-    ld r0, r0
     jsr push_coords
     inc r0
     jsr push_coords
