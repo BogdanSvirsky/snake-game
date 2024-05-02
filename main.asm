@@ -33,6 +33,8 @@ end_snake_coords: # place for new coords
     dc snake_coords
 snake_length:
     dc 0
+snake_direction:
+    dc 0x10
 
 external_devices_data:
     ds 16
@@ -40,9 +42,9 @@ external_devices_data:
 check_coords_pointers> # store pointer in r2
     ldi r3, snake_coords
     sub r2, r3
-    ldi r4, 255
+    ldi r5, 255
     if
-        cmp r3, r4
+        cmp r3, r5
     is eq
         ldi r2, snake_coords
     else
@@ -161,6 +163,38 @@ move_snake>
     is z
         rts
     fi
+
+    # check back
+    ldi r2, snake_direction
+    ld r2, r2
+    if
+        tst r2
+    is nz
+        move r2, r3
+        shr r2
+        shr r2
+        if
+            cmp r2, r1
+        is eq
+            move r3, r1
+        else
+            move r3, r2
+            move r1, r3
+            shr r1
+            shr r1
+            if
+                cmp r2, r1
+            is eq
+                move r2, r1
+            else
+                move r3, r1
+            fi
+        fi
+    fi
+
+    ldi r2, snake_direction
+    st r2, r1
+
     ldi r2, 0b1
     if
         cmp r1, r2
@@ -183,8 +217,7 @@ move_snake>
             fi
         fi
     fi
-    ldi r1, external_devices_data
-    inc r1
+    ldi r1, external_devices_data + 1
     ldb r1, r1
     if
         cmp r1, r0
@@ -223,9 +256,7 @@ set_external_devices>
 
 check_pixel> # store res to r1
     ldi r6, 0b10
-    ldi r1, external_devices_data
-    inc r1
-    inc r1
+    ldi r1, external_devices_data + 2
     ldb r1, r1
     ldi r6, 0
     tst r1
@@ -237,8 +268,7 @@ generate_food>
     do
         ldi r6, 1
         ldi r6, 0
-        ldi r1, external_devices_data
-        inc r1
+        ldi r1, external_devices_data + 1
         ldb r1, r0
         jsr check_pixel
     until z
@@ -260,6 +290,8 @@ eat_food>
     inc r1
     ldi r2, snake_length
     st r2, r1
+    ldi r6, 0b10000
+    clr r6
     jsr generate_food
     rts
 
