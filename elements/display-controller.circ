@@ -1083,7 +1083,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(240,1020)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x5"/>
+      <a name="value" val="0xa8"/>
     </comp>
     <comp lib="1" loc="(1620,160)" name="AND Gate">
       <a name="width" val="16"/>
@@ -1249,7 +1249,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(240,1340)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x5"/>
+      <a name="value" val="0xa2"/>
     </comp>
     <comp lib="0" loc="(1200,1150)" name="Tunnel">
       <a name="width" val="16"/>
@@ -1275,7 +1275,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(240,1460)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x5"/>
+      <a name="value" val="0xa0"/>
     </comp>
     <comp lib="1" loc="(1770,1080)" name="NOT Gate">
       <a name="facing" val="west"/>
@@ -1566,7 +1566,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(320,1260)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x78"/>
+      <a name="value" val="0x7f"/>
     </comp>
     <comp lib="0" loc="(690,940)" name="Constant">
       <a name="facing" val="north"/>
@@ -1713,7 +1713,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(320,1060)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x78"/>
+      <a name="value" val="0x73"/>
     </comp>
     <comp lib="0" loc="(830,1150)" name="Tunnel">
       <a name="width" val="16"/>
@@ -1886,7 +1886,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(240,1100)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x5"/>
+      <a name="value" val="0xa8"/>
     </comp>
     <comp lib="1" loc="(1460,720)" name="AND Gate">
       <a name="facing" val="north"/>
@@ -2121,7 +2121,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(320,1340)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x78"/>
+      <a name="value" val="0x5f"/>
     </comp>
     <comp lib="0" loc="(1470,1870)" name="Tunnel">
       <a name="facing" val="north"/>
@@ -2181,7 +2181,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(240,1060)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x5"/>
+      <a name="value" val="0xa6"/>
     </comp>
     <comp lib="0" loc="(690,1420)" name="Probe">
       <a name="facing" val="south"/>
@@ -2225,7 +2225,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(240,1220)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x5"/>
+      <a name="value" val="0xaf"/>
     </comp>
     <comp lib="0" loc="(1690,1010)" name="Probe">
       <a name="facing" val="north"/>
@@ -2239,7 +2239,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(240,900)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x5"/>
+      <a name="value" val="0xa0"/>
     </comp>
     <comp lib="0" loc="(560,450)" name="Pin">
       <a name="facing" val="west"/>
@@ -2251,7 +2251,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(320,1180)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x78"/>
+      <a name="value" val="0x5b"/>
     </comp>
     <comp lib="1" loc="(1640,530)" name="Controlled Buffer">
       <a name="facing" val="south"/>
@@ -3223,7 +3223,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(240,1300)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x5"/>
+      <a name="value" val="0xaf"/>
     </comp>
     <comp lib="0" loc="(730,1230)" name="Splitter">
       <a name="facing" val="west"/>
@@ -3248,7 +3248,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(240,1500)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x5"/>
+      <a name="value" val="0xa0"/>
     </comp>
     <comp lib="0" loc="(1060,980)" name="Constant">
       <a name="facing" val="north"/>
@@ -3385,7 +3385,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(320,1220)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x78"/>
+      <a name="value" val="0x67"/>
     </comp>
     <comp lib="1" loc="(1550,320)" name="AND Gate">
       <a name="size" val="30"/>
@@ -3533,7 +3533,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(320,1020)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x78"/>
+      <a name="value" val="0x4f"/>
     </comp>
     <comp lib="0" loc="(1450,1040)" name="Tunnel">
       <a name="facing" val="east"/>
@@ -3720,7 +3720,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(240,1140)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x5"/>
+      <a name="value" val="0xa7"/>
     </comp>
     <comp lib="0" loc="(1060,1060)" name="Probe">
       <a name="facing" val="south"/>
@@ -4024,7 +4024,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(320,1300)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x78"/>
+      <a name="value" val="0x63"/>
     </comp>
     <comp lib="1" loc="(1780,810)" name="Controlled Buffer">
       <a name="width" val="16"/>
@@ -4054,7 +4054,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(240,1180)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x5"/>
+      <a name="value" val="0xa0"/>
     </comp>
     <comp lib="0" loc="(1060,1340)" name="Constant">
       <a name="facing" val="north"/>
@@ -4105,7 +4105,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(240,1260)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x5"/>
+      <a name="value" val="0xa0"/>
     </comp>
     <comp lib="0" loc="(1520,450)" name="Tunnel">
       <a name="facing" val="east"/>
@@ -4271,7 +4271,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(320,980)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x78"/>
+      <a name="value" val="0x73"/>
     </comp>
     <comp lib="0" loc="(1690,1150)" name="Probe">
       <a name="facing" val="north"/>
@@ -4637,7 +4637,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(240,1420)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x5"/>
+      <a name="value" val="0xaf"/>
     </comp>
     <comp lib="4" loc="(1480,1820)" name="Register">
       <a name="width" val="16"/>
@@ -4823,7 +4823,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(320,1500)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x78"/>
+      <a name="value" val="0x7f"/>
     </comp>
     <comp lib="1" loc="(1590,1780)" name="NOT Gate">
       <a name="facing" val="west"/>
@@ -4862,7 +4862,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(320,900)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x78"/>
+      <a name="value" val="0x7f"/>
     </comp>
     <comp lib="4" loc="(1480,840)" name="Register">
       <a name="width" val="16"/>
@@ -4974,7 +4974,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(320,940)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x78"/>
+      <a name="value" val="0x7f"/>
     </comp>
     <comp lib="0" loc="(1700,1550)" name="Pull Resistor">
       <a name="facing" val="east"/>
@@ -5174,7 +5174,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(240,940)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x5"/>
+      <a name="value" val="0xa0"/>
     </comp>
     <comp lib="0" loc="(830,910)" name="Tunnel">
       <a name="width" val="16"/>
@@ -5356,7 +5356,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(240,980)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x5"/>
+      <a name="value" val="0xa7"/>
     </comp>
     <comp lib="0" loc="(1610,1620)" name="Tunnel">
       <a name="facing" val="east"/>
@@ -5410,7 +5410,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(240,1380)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x5"/>
+      <a name="value" val="0xa4"/>
     </comp>
     <comp lib="0" loc="(1410,1810)" name="Tunnel">
       <a name="facing" val="east"/>
@@ -5557,7 +5557,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(320,1380)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x78"/>
+      <a name="value" val="0x5f"/>
     </comp>
     <comp lib="1" loc="(1690,1790)" name="Controlled Buffer">
       <a name="width" val="16"/>
@@ -5589,7 +5589,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(320,1140)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x78"/>
+      <a name="value" val="0x67"/>
     </comp>
     <comp lib="1" loc="(1820,390)" name="Controlled Buffer">
       <a name="facing" val="south"/>
@@ -5633,7 +5633,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(320,1460)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x78"/>
+      <a name="value" val="0x7f"/>
     </comp>
     <comp lib="0" loc="(980,1220)" name="Constant">
       <a name="facing" val="north"/>
@@ -5717,7 +5717,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(320,1420)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x78"/>
+      <a name="value" val="0x63"/>
     </comp>
     <comp lib="4" loc="(440,600)" name="Counter"/>
     <comp lib="1" loc="(1440,1680)" name="OR Gate">
@@ -5752,7 +5752,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(320,1100)" name="Constant">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
-      <a name="value" val="0x78"/>
+      <a name="value" val="0x7f"/>
     </comp>
     <comp lib="1" loc="(1680,1780)" name="NOT Gate">
       <a name="facing" val="west"/>
