@@ -164,36 +164,7 @@ move_snake>
         rts
     fi
 
-    # check back
-    ldi r2, snake_direction
-    ld r2, r2
-    if
-        tst r2
-    is nz
-        move r2, r3
-        shr r2
-        shr r2
-        if
-            cmp r2, r1
-        is eq
-            move r3, r1
-        else
-            move r3, r2
-            move r1, r3
-            shr r1
-            shr r1
-            if
-                cmp r2, r1
-            is eq
-                move r2, r1
-            else
-                move r3, r1
-            fi
-        fi
-    fi
-
-    ldi r2, snake_direction
-    st r2, r1
+    move r1, r4
 
     ldi r2, 0b1
     if
