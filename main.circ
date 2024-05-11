@@ -99,9 +99,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
   <lib desc="jar#elements/logisim-cdm-emulator-0.2.0.jar#org.cdm.logisim.emulator.Components" name="8"/>
   <lib desc="jar#elements/logisim-debugger-0.2.0.jar#org.cdm.logisim.debugger.Components" name="9"/>
   <lib desc="file#elements/display-controller.circ" name="10"/>
-  <lib desc="file#elements/display-decoder.circ" name="11"/>
-  <lib desc="file#elements/counter.circ" name="12"/>
-  <lib desc="file#elements/Buttons.circ" name="13"/>
+  <lib desc="file#elements/counter.circ" name="11"/>
+  <lib desc="file#elements/Buttons.circ" name="12"/>
   <main name="main"/>
   <options>
     <a name="gateUndefined" val="ignore"/>
@@ -166,13 +165,13 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="label" val="game over"/>
       <a name="labelfont" val="SansSerif plain 9"/>
     </comp>
+    <comp lib="5" loc="(330,460)" name="Hex Digit Display"/>
     <comp lib="0" loc="(410,670)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="width" val="4"/>
       <a name="label" val="keyboard"/>
       <a name="labelfont" val="SansSerif plain 9"/>
     </comp>
-    <comp lib="5" loc="(330,460)" name="Hex Digit Display"/>
     <comp lib="0" loc="(400,610)" name="Tunnel">
       <a name="facing" val="north"/>
       <a name="label" val="collision"/>
@@ -305,7 +304,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="label" val="snake dir"/>
       <a name="labelfont" val="SansSerif plain 9"/>
     </comp>
-    <comp lib="12" loc="(240,480)" name="counter"/>
+    <comp lib="11" loc="(240,480)" name="counter"/>
     <comp lib="5" loc="(290,460)" name="Hex Digit Display"/>
     <comp lib="0" loc="(480,720)" name="Tunnel">
       <a name="facing" val="north"/>
@@ -524,37 +523,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="facing" val="south"/>
       <a name="size" val="30"/>
       <a name="inputs" val="3"/>
-    </comp>
-  </circuit>
-  <circuit name="random_generator">
-    <a name="circuit" val="random_generator"/>
-    <a name="clabel" val=""/>
-    <a name="clabelup" val="east"/>
-    <a name="clabelfont" val="SansSerif plain 12"/>
-    <appear>
-      <rect fill="none" height="20" stroke="#000000" stroke-width="2" width="50" x="50" y="60"/>
-      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="75" y="74">Random</text>
-      <circ-port height="8" pin="210,170" width="8" x="66" y="76"/>
-      <circ-port height="10" pin="460,180" width="10" x="95" y="65"/>
-      <circ-anchor facing="east" height="6" width="6" x="57" y="77"/>
-    </appear>
-    <wire from="(380,180)" to="(460,180)"/>
-    <wire from="(310,180)" to="(340,180)"/>
-    <wire from="(210,170)" to="(280,170)"/>
-    <comp lib="0" loc="(380,180)" name="Bit Extender"/>
-    <comp lib="0" loc="(460,180)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="16"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="random_XY"/>
-    </comp>
-    <comp lib="0" loc="(210,170)" name="Pin">
-      <a name="tristate" val="false"/>
-      <a name="label" val="get random"/>
-    </comp>
-    <comp lib="4" loc="(310,180)" name="Random">
-      <a name="trigger" val="falling"/>
     </comp>
   </circuit>
   <circuit name="keyboard_decoder">
@@ -790,6 +758,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(230,110)" to="(230,130)"/>
     <wire from="(100,130)" to="(140,130)"/>
     <wire from="(400,150)" to="(440,150)"/>
+    <wire from="(440,490)" to="(480,490)"/>
     <wire from="(560,410)" to="(580,410)"/>
     <wire from="(370,150)" to="(400,150)"/>
     <wire from="(370,130)" to="(400,130)"/>
@@ -828,7 +797,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(650,450)" to="(690,450)"/>
     <wire from="(500,190)" to="(500,210)"/>
     <wire from="(150,260)" to="(150,280)"/>
-    <wire from="(390,460)" to="(390,490)"/>
     <wire from="(250,190)" to="(290,190)"/>
     <wire from="(180,110)" to="(180,140)"/>
     <wire from="(620,470)" to="(620,490)"/>
@@ -836,7 +804,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(250,180)" to="(350,180)"/>
     <wire from="(220,90)" to="(320,90)"/>
     <wire from="(560,410)" to="(560,450)"/>
-    <wire from="(390,490)" to="(480,490)"/>
     <wire from="(400,130)" to="(430,130)"/>
     <wire from="(160,400)" to="(250,400)"/>
     <wire from="(590,390)" to="(610,390)"/>
@@ -902,6 +869,10 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="width" val="16"/>
       <a name="label" val="s01"/>
       <a name="labelfont" val="SansSerif plain 9"/>
+    </comp>
+    <comp lib="0" loc="(440,490)" name="Probe">
+      <a name="facing" val="south"/>
+      <a name="radix" val="16"/>
     </comp>
     <comp lib="0" loc="(670,190)" name="Tunnel">
       <a name="width" val="16"/>
@@ -1251,10 +1222,6 @@ f7 dd 4
       <a name="facing" val="east"/>
       <a name="label" val="read/write"/>
       <a name="labelfont" val="SansSerif plain 9"/>
-    </comp>
-    <comp lib="0" loc="(390,460)" name="Probe">
-      <a name="facing" val="south"/>
-      <a name="radix" val="16"/>
     </comp>
     <comp lib="0" loc="(660,460)" name="Tunnel">
       <a name="width" val="16"/>
