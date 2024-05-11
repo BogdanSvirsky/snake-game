@@ -27,98 +27,98 @@ rsect main
 # snake's coordinates - 0x00YX
 snake_coords:
     ds 256
-start_snake_coords: # pointer to first coords
+start_snake_coords: # address of first coords
     dc snake_coords
-end_snake_coords: # place for new coords
+end_snake_coords: # address of place for new coords
     dc snake_coords
 snake_length:
     dc 0
-snake_direction:
-    dc 0x10
+snake_direction: # current direction of snake movement
+    dc 0
 
-external_devices_data:
+external_devices_data: # allocating bytes for memory mapped I/O
     ds 16
 
-check_coords_pointers> # store pointer in r2
+update_coords_pointers> # updating start or end address of coords in circular buffer, need to store address in r2 (result also here)
     ldi r3, snake_coords
     sub r2, r3
-    ldi r5, 255
+    ldi r5, 255 # size of display - 1
     if
         cmp r3, r5
     is eq
-        ldi r2, snake_coords
+        ldi r2, snake_coords # addres moves to beginning
     else
-        inc r2
+        inc r2 # address goes on
     fi
     rts
 
-turn_on_pixel>
-    ldi r2, 0x100
-    or r2, r0
+turn_on_pixel> # change pixel mode in r0
+    ldi r2, 0x100 
+    or r2, r0 # up bit 8 to 1 <=> set pixel's mode to on
     rts
 
-turn_off_pixel>
+turn_off_pixel> # change pixel mode in r0
     ldi r2, 0xff
-    and r2, r0
+    and r2, r0  # down bit 8 to 0 <=> set pixel's mode to off
     rts
 
-push_coords_to_display> # r0 - 0bMYYYYXXXX (M - mode)
+push_coords_to_display> # transfer pixel in r0 to display, r0 - 0bMYYYYXXXX (M - mode)
     ldi r2, 0x200
-    add r2, r0
-    sub r0, r2
+    or r2, r0  
+    sub r0, r2 # signal to display controller to transmit the pixel 
     move r2, r0
-    ldi r1, 0xff
-    and r1, r0
+    ldi r1, 0xff 
+    and r1, r0 # put r0 to the standart state (0x00YX)
     rts
 
-push_coords>
+push_coords> # push new pixel to snake
     ldi r2, end_snake_coords
     ld r2, r2
-    stb r2, r0
-    jsr check_coords_pointers
+    stb r2, r0 # push new pixel in snake
+    jsr update_coords_pointers
     ldi r3, end_snake_coords
-    st r3, r2
+    st r3, r2 # update address end_snake_coords in cyclic buffer
     jsr turn_on_pixel
-    jsr push_coords_to_display
+    jsr push_coords_to_display # turn on new pixel on display 
     rts
 
-pop_coords>
-    push r0
+pop_coords> # pop last pixel from snake
+    push r0 # save value from r0, because it's current head coords
     ldi r2, start_snake_coords
     ld r2, r2
-    ldb r2, r0
+    ldb r2, r0 # get last pixel from snake
     jsr turn_off_pixel
     jsr push_coords_to_display
 
     ldi r2, start_snake_coords
     ld r2, r2
-    jsr check_coords_pointers
+    jsr update_coords_pointers
     ldi r3, start_snake_coords
-    st r3, r2
-    pop r0
+    st r3, r2 # update address start_snake_coords in cyclic buffer
+    pop r0 # return r0 its correct value
     rts
 
-move_up>
+move_up> # move the snake's head up
     ldi r1, 0b11110000
     and r0, r1
-    ldi r2, 0b11110000
+    ldi r2, 0b11110000 # when head stands next to board, Y coord is equal to 0b1111
     if
         cmp r2, r1
     is eq
-        jsr game_over
+        jsr game_over # when we can't move and the user loses 
     else
-        ldi r1, 0x10
-        add r1, r0
+        ldi r1, 0x10 
+        add r1, r0 # otherwise we increment Y coordinate 
     fi
     rts
 
-move_bottom>
+move_bottom> # move the snake's head down, structure is equal to subroutine above
     ldi r1, 0b11110000
     and r0, r1
     if
         tst r1
     is eq
-        jsr game_over
+        jsr game_over # if Y coord = 0 we can't move down
     else
         ldi r1, 0x10
         sub r0, r1
@@ -126,13 +126,13 @@ move_bottom>
     fi
     rts
 
-move_left>
+move_left> # move the snake's head to the left, structure is equal to subroutine above
     ldi r1, 0b1111
     and r0, r1
     if
         tst r1
     is eq
-        jsr game_over
+        jsr game_over # if X coord = 0 we can't move left
     else
         ldi r1, 0b1
         sub r0, r1
@@ -140,14 +140,14 @@ move_left>
     fi
     rts
 
-move_right>
+move_right> # move the snake's head to the right, structure is equal to subroutine above
     ldi r1, 0b1111
     and r0, r1
     ldi r2, 0b1111
     if
         cmp r2, r1
     is eq
-        jsr game_over
+        jsr game_over # if X coord = 0b1111 we can't move left
     else
         ldi r1, 1
         add r1, r0
@@ -156,12 +156,17 @@ move_right>
 
 move_snake>
     ldi r1, external_devices_data # addres of keyboard input in memory
-    # TODO: add snake's size changed logic
     ldb r1, r1
     if
         tst r1
     is z
-        rts
+        if 
+            tst r4
+        is z
+            rts
+        else
+            move r4, r1
+        fi
     fi
 
     move r1, r4
@@ -188,6 +193,7 @@ move_snake>
             fi
         fi
     fi
+    
     ldi r1, external_devices_data + 1
     ldb r1, r1
     if
@@ -209,13 +215,12 @@ move_snake>
     rts
 
 init_snake>
-    ldi r0, 0 # init start coords
+    ldi r0, 0               # init start coords
     jsr push_coords
-    ldi r1, snake_length
-    ld r1, r1
-    inc r1 # init snake length 1
+    ldi r1, 1               # init snake length 1
     ldi r2, snake_length
     st r2, r1
+    clr r4                  # snake hasn't direction at the beginning
     rts
 
 set_external_devices>
@@ -225,7 +230,7 @@ set_external_devices>
     ldi r6, 0
     rts
 
-check_pixel> # store res to r1
+check_pixel>                            # store res to r1
     ldi r6, 0b10
     ldi r1, external_devices_data + 2
     ldb r1, r1
@@ -233,8 +238,7 @@ check_pixel> # store res to r1
     tst r1
     rts
 
-generate_food>
-    # we don't need to turn off the old pixel, because it is now part of the snake
+generate_food>                                  # we don't need to turn off the old pixel, because it is now part of the snake
     push r0
     do
         ldi r6, 1
@@ -249,9 +253,12 @@ generate_food>
     rts
 
 game_over>
-    # TODO: add game over logic
     ldi r5, 0b100
     or r5, r6
+    halt
+    rts
+
+win>
     halt
     rts
 
@@ -263,6 +270,10 @@ eat_food>
     st r2, r1
     ldi r6, 0b10000
     clr r6
+    ldi r1, external_devices_data + 3
+    ldb r1, r1
+    tst r1
+    bnz win
     jsr generate_food
     rts
 
@@ -270,13 +281,12 @@ main>
     jsr set_external_devices
     jsr init_snake
     jsr generate_food
-    ldi r2, 256
     while
-        cmp r2, r1
-    stays gt
-        jsr move_snake
         ldi r1, snake_length
         ld r1, r1
         ldi r2, 256
+        cmp r2, r1
+    stays gt
+        jsr move_snake
     wend
 end.
