@@ -26,7 +26,7 @@ rsect main
 # r6 - external devices managment
 # snake's coordinates - 0x00YX
 snake_coords:
-    ds 256
+    ds 256 # size of display - 16 x 16, snake can fill it all
 start_snake_coords: # address of first coords
     dc snake_coords
 end_snake_coords: # address of place for new coords
@@ -154,7 +154,7 @@ move_right> # move the snake's head to the right, structure is equal to subrouti
     fi
     rts
 
-move_snake>
+move_snake> # the main function of the snake's movement
     ldi r1, external_devices_data # addres of keyboard input in memory
     ldb r1, r1
     if
@@ -163,21 +163,25 @@ move_snake>
         if 
             tst r4
         is z
-            rts
+            rts # if we have 0 from keyboard and 0 from current direction, it means that snake hasn't started moving yet
         else
-            move r4, r1
+            move r4, r1 # if we get 0 from keyboard and snake has direction, snake moves in previous direction
         fi
     fi
 
-    move r1, r4
+    move r1, r4 # saving the current direction as the direction of the snake
 
-    ldi r2, 0b1
+        # determining and calculating the new coords of the snake's head,
+        # in which direction we need to move the snake 
+        # (in r2 values from keyboard, check docs for more info) 
+
+    ldi r2, 0b1 
     if
         cmp r1, r2
     is eq
         jsr move_up
     else
-        ldi r2, 0b10
+        ldi r2, 0b10 
         if
             cmp r1, r2
         is eq
@@ -194,99 +198,98 @@ move_snake>
         fi
     fi
     
-    ldi r1, external_devices_data + 1
+    ldi r1, external_devices_data + 1 # getting current food's coords
     ldb r1, r1
     if
         cmp r1, r0
-    is eq
+    is eq # if new head coords is equal to those food, we push new pixel in snake and eat the food
         jsr push_coords
         jsr eat_food
-    else
-        jsr check_pixel
+    else # otherwise we check: did the snake crash into itself?
         if
-            tst r1
-        is z
-            jsr push_coords
-            jsr pop_coords
-        else
+            jsr check_pixel
+        is z # the new snake's head pixel isn't already exists, so let's simply move the snake
+            jsr push_coords # push new pixel in the snake
+            jsr pop_coords # pop last pixel from the snake 
+        else # the new snake's head pixel is already exists, so snake crashed into itself -> game over
             jsr game_over
         fi
     fi
     rts
 
-init_snake>
-    ldi r0, 0               # init start coords
-    jsr push_coords
-    ldi r1, 1               # init snake length 1
+init_snake> # snake's initialization
+    ldi r0, 0 # init start coords
+    jsr push_coords # push its to snake
+    ldi r1, 1 # init snake length 1
     ldi r2, snake_length
     st r2, r1
-    clr r4                  # snake hasn't direction at the beginning
+    clr r4 # snake hasn't direction at the beginning
     rts
 
-set_external_devices>
+set_external_devices> # set address for memory mapped input
     ldi r5, external_devices_data
     ldi r6, 0
-    ldi r6, 0b1000
+    ldi r6, 0b1000 # save address in memory mapped module from r5 (see IO-api docs)
     ldi r6, 0
     rts
 
-check_pixel>                            # store res to r1
-    ldi r6, 0b10
+check_pixel> # getting current state of current pixel in r0, store res to r1
+    ldi r6, 0b10 # turn on checking pixels on display controller (see the docs)
     ldi r1, external_devices_data + 2
-    ldb r1, r1
-    ldi r6, 0
-    tst r1
+    ldb r1, r1 # getting result from display controller
+    ldi r6, 0 # turn off checking
+    tst r1 # for branches
     rts
 
-generate_food>                                  # we don't need to turn off the old pixel, because it is now part of the snake
-    push r0
+generate_food> # genenrating new food, previous food stays at the display, because now it's part of the snake
+    push r0 # save r0 value, because it's current head's coordinates
     do
         ldi r6, 1
-        ldi r6, 0
+        ldi r6, 0 # generating new 8-bit length value from random generator (see the docs)
         ldi r1, external_devices_data + 1
-        ldb r1, r0
-        jsr check_pixel
+        ldb r1, r0 # getting result
+        jsr check_pixel # if this pixel is already exist, we need to regenerate it
     until z
     jsr turn_on_pixel
-    jsr push_coords_to_display
-    pop r0
+    jsr push_coords_to_display # turn on this pixel on display
+    pop r0 # return r0 correct value
     rts
 
-game_over>
+game_over> # game over logic
     ldi r5, 0b100
-    or r5, r6
-    halt
+    or r5, r6 # setting game over screen (docs)
+    halt # stopping the processor
     rts
 
-win>
-    halt
+win> # win logic
+    halt # stopping the processor
     rts
 
 eat_food>
     ldi r1, snake_length
     ld r1, r1
-    inc r1
+    inc r1 # increment the snake's length
     ldi r2, snake_length
     st r2, r1
     ldi r6, 0b10000
-    clr r6
+    clr r6 # increment the user's scores
     ldi r1, external_devices_data + 3
-    ldb r1, r1
+    ldb r1, r1 # getting value from byte, which contains win event (1 or 0)
     tst r1
-    bnz win
-    jsr generate_food
+    bnz win # checking, did the user win
+    jsr generate_food # generating new food
     rts
 
 main>
     jsr set_external_devices
     jsr init_snake
-    jsr generate_food
+    jsr generate_food # generating first food
     while
         ldi r1, snake_length
         ld r1, r1
-        ldi r2, 256
+        ldi r2, 256 # display size (16 x 16)
         cmp r2, r1
-    stays gt
+    stays gt # we work until the snake fills the entire display
         jsr move_snake
     wend
 end.
