@@ -1,6 +1,5 @@
 # Description
-Implementation of the Snake game in Assembler using Logisim and CdM16
-We tried to make the development process open. We want our experience to help you with your projects. 
+Implementation of the Snake game in Assembler using Logisim and CdM16. We tried to make the development process open. We want our experience to help you with your projects. 
 
 # How to use
 1. Clone our repo
